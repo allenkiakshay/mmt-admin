@@ -1,15 +1,13 @@
+import CategoryCreate from "@/components/Categories/CreateCategory";
 import Fotter from "@/components/HomePage/Fotter";
-import HomePage from "@/components/HomePage/Homepage";
 import Navbar from "@/components/HomePage/Navbar";
 
-const Page = () => {
+export default function Page() {
   return (
     <>
       <Navbar />
-      <HomePage />
+      <CategoryCreate />
       <Fotter />
     </>
   );
-};
-
-export default Page;
+}
