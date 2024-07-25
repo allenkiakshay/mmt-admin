@@ -1,13 +1,13 @@
-import CategoryCreate from "@/components/Categories/CreateCategory";
+import AllCategories from "@/components/Categories/AllCategories";
 import Fotter from "@/components/HomePage/Fotter";
 import Navbar from "@/components/HomePage/Navbar";
 
 export default function Page() {
   return (
-    <>
+    <div>
       <Navbar />
-      <CategoryCreate />
+      <AllCategories />
       <Fotter />
-    </>
+    </div>
   );
 }

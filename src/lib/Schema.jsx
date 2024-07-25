@@ -8,11 +8,7 @@ export async function createLoginActivity(client) {
       );
       
       alter table owner_login_activity
-          owner to postgres;
-      
-      grant select on owner_login_activity to mmt;
-      
-      grant insert, references, select, trigger, truncate, update on owner_login_activity to owner;           
+          owner to postgres;      
       `
   );
 }

@@ -1,8 +1,8 @@
 "use client";
 import { uploadFileToS3 } from "@/lib/UploadImage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const CategoryCreate = () => {
+const CategoryCreate = ({ api, redirect }) => {
   const [categoryName, setCategoryName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
@@ -11,9 +11,27 @@ const CategoryCreate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const result = await uploadFileToS3(image);
-    console.log("Result:", result);
+    const url = await uploadFileToS3(image);
 
+    const result = await fetch(api, {
+      method: "POST",
+      body: JSON.stringify({
+        categoryName,
+        description,
+        image: url,
+        categoryid,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        token: localStorage.getItem("token"),
+      },
+    });
+
+    if (result.status === 200) {
+      alert("Category created successfully");
+    }
+
+    window.location.href = redirect;
     setCategoryName("");
     setDescription("");
     setImage(null);
@@ -26,6 +44,25 @@ const CategoryCreate = () => {
     }
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      const decodedToken = JSON.parse(atob(token.split(".")[1]));
+      const isTokenExpired = Date.now() >= decodedToken.exp * 1000;
+
+      if (isTokenExpired) {
+        localStorage.removeItem("token");
+        window.location.href = "/login";
+        // setSignin(true);
+      } else {
+        // setSignin(false);
+      }
+    } else {
+      window.location.href = "/login";
+      // setSignin(true);
+    }
+  }, []);
   return (
     <div className="flex w-full h-fit px-10 md:px-20 lg:px-25 py-4 bg-gray-100">
       <div className="w-full">
