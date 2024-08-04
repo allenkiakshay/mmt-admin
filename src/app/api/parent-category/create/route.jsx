@@ -31,7 +31,7 @@ export async function POST(req) {
     }
 
     await client.query(
-      `INSERT INTO "parent_categories" (name, description, image_url, category_id,created_by,user_email) VALUES ('${categoryName}', '${description}', '${image}', '${categoryid}','${isVerified.rows[0].firstName}','${isVerified.rows[0].email}')`
+      `INSERT INTO "parent_categories" (name, description, image_url, category_id,created_by,user_email,updated_at,created_at) VALUES ('${categoryName}', '${description}', '${image}', '${categoryid}','${isVerified.rows[0].firstName}','${isVerified.rows[0].email}',DEFAULT,DEFAULT)`
     );
 
     return NextResponse.json({

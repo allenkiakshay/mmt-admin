@@ -28,7 +28,7 @@ export default function CategoryCard({ category }) {
               className="bg-blue-600 hover:bg-blue-800 text-white font-semibold py-1 px-3 rounded transition-all duration-200"
               onClick={handleDisplay}
             >
-              View
+              Products
             </button>
             <button
               className="bg-green-600 hover:bg-green-800 text-white font-semibold py-1 px-3 rounded transition-all duration-200"

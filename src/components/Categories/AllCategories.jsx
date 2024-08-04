@@ -45,23 +45,6 @@ export default function AllCategories() {
     }
   }, []);
 
-  const categoriesData = [
-    {
-      id: 1,
-      name: "Category 1",
-      description: "This is category 1 description",
-      image:
-        "https://mahesh-mens-touch.s3.ap-south-1.amazonaws.com/1721837693350-Screenshot+from+2024-07-24+18-04-07.png",
-    },
-    {
-      id: 2,
-      name: "Category 2",
-      description: "This is category 2 description",
-      image:
-        "https://mahesh-mens-touch.s3.ap-south-1.amazonaws.com/1721837693350-Screenshot+from+2024-07-24+18-04-07.png",
-    },
-  ];
-
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-4">Categories</h1>
