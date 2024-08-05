@@ -2,11 +2,11 @@ import Image from "next/image";
 
 export default function CategoryCard({ category }) {
   const handleEdit = () => {
-    window.location.href = `/edit/${category.category_id}`;
+    window.location.href = `/edit/${category.sub_category_id}`;
   };
 
   const handleDisplay = () => {
-    window.location.href = `/categories/${category.category_id}`;
+    window.location.href = `/categories/${category.sub_category_id}`;
   };
 
   return (
@@ -14,20 +14,20 @@ export default function CategoryCard({ category }) {
       <div className="flex w-full h-full justify-center items-end">
         <Image
           src={category?.image_url}
-          alt={category?.name}
+          alt={category?.sub_category_name}
           layout="fill"
           className="object-cover rounded-lg"
         />
         <div className="absolute bottom-0 z-30 w-full bg-white bg-opacity-80 backdrop-blur-md p-4 rounded-t-lg flex flex-col justify-center items-center">
           <p className="font-bold text-lg text-gray-800 mb-2">
-            {category?.name}
+            {category?.sub_category_name}
           </p>
           <div className="flex space-x-3">
             <button
               className="bg-blue-600 hover:bg-blue-800 text-white font-semibold py-1 px-3 rounded transition-all duration-200"
               onClick={handleDisplay}
             >
-              Sub Categories
+              Products
             </button>
             <button
               className="bg-green-600 hover:bg-green-800 text-white font-semibold py-1 px-3 rounded transition-all duration-200"
