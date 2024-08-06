@@ -76,17 +76,6 @@ export default function LoginPage() {
               required
               onChange={(e) => setPassword(e.target.value)}
             />
-            <div className="flex justify-between items-center">
-              <a href="/signup" className="text-sm text-black">
-                Sign Up
-              </a>
-              <a
-                href="/passwordreset"
-                className="text-sm text-black text-right"
-              >
-                Forgot Password?
-              </a>
-            </div>
             {/* Placeholder for Google reCAPTCHA */}
             <div className="my-4">
               {/* Replace this with your reCAPTCHA implementation */}
