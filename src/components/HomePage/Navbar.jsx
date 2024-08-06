@@ -49,7 +49,7 @@ export default function Navbar() {
         </a>
 
         <div className="flex space-x-6">
-          <a href="#">
+          <a href="/">
             <p className="hover:text-gray-300">Home</p>
           </a>
           <button

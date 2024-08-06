@@ -3,15 +3,16 @@
 import { useEffect, useState } from "react";
 import CategoryCard from "./CategoryCard";
 
-export default function AllSubCategories() {
+export default function AllSubCategories({ category }) {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     const fetchCategories = async () => {
-      const result = await fetch("/api/sub-category/fetchall", {
+      const result = await fetch("/api/sub-category/fetch", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
           token: localStorage.getItem("token"),
+          category: category,
         },
       });
 
@@ -22,7 +23,7 @@ export default function AllSubCategories() {
     };
 
     fetchCategories();
-  }, []);
+  }, [category]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -47,7 +48,7 @@ export default function AllSubCategories() {
   return (
     <div className="container mx-auto p-4">
       <div className="justify-between flex items-center">
-        <h1 className="text-3xl font-bold mb-4">All Sub Categories</h1>
+        <h1 className="text-3xl font-bold mb-4">Sub Category - {category}</h1>
         <a
           href="/categories/create/sub"
           className="bg-blue-500 text-white p-2 rounded-lg shadow-md hover:bg-blue-700"

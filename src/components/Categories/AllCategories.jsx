@@ -47,9 +47,17 @@ export default function AllCategories() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Categories</h1>
+      <div className="flex items-center justify-between mb-4">
+        <h1 className="text-3xl font-bold mb-4">Categories</h1>
+        <a
+          href="/categories/create/parent"
+          className="bg-blue-500 text-white p-2 rounded-lg shadow-md hover:bg-blue-700"
+        >
+          Add Category
+        </a>
+      </div>
       <div className="flex flex-wrap gap-10">
-        {categories?.map((category,key) => (
+        {categories?.map((category, key) => (
           <CategoryCard key={key} category={category} />
         ))}
       </div>

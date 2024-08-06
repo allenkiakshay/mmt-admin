@@ -6,7 +6,7 @@ export default function CategoryCard({ category }) {
   };
 
   const handleDisplay = () => {
-    window.location.href = `/categories/${category.sub_category_id}`;
+    window.location.href = `/categories/sub/${category.parent_category_id}/${category.sub_category_id}/products`;
   };
 
   return (

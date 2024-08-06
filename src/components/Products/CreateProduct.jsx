@@ -85,7 +85,7 @@ export default function CreateProduct() {
       alert("Product created successfully");
     }
 
-    window.location.href = `/categories/${parentCategory}/products`;
+    window.location.href = `/categories/sub/${parentCategory}/${subCategory}/products`;
     setProductName("");
     setDescription("");
     setImages([]);

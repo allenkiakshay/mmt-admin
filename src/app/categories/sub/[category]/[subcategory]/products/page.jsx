@@ -1,15 +1,17 @@
 "use client";
-
 import Fotter from "@/components/HomePage/Fotter";
 import Navbar from "@/components/HomePage/Navbar";
-import AllSubCategories from "@/components/Sub_Categories/AllSubCategories";
+import AllProducts from "@/components/Products/subproducts";
 
 export default function Page({ params }) {
   return (
-    <>
+    <div>
       <Navbar />
-      <AllSubCategories category={params.category} />
+      <AllProducts
+        category={params.category}
+        sub_category={params.subcategory}
+      />
       <Fotter />
-    </>
+    </div>
   );
 }

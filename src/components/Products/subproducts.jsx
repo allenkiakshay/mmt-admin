@@ -1,28 +1,30 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import CategoryCard from "./CategoryCard";
+import ProductCard from "./ProductCard";
 
-export default function AllSubCategories() {
-  const [categories, setCategories] = useState([]);
+export default function AllProducts({ category, sub_category }) {
+  const [products, setProducts] = useState([]);
   useEffect(() => {
-    const fetchCategories = async () => {
-      const result = await fetch("/api/sub-category/fetchall", {
+    const fetchproducts = async () => {
+      const result = await fetch("/api/products/fetch", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
           token: localStorage.getItem("token"),
+          category: category,
+          sub_category: sub_category,
         },
       });
 
       if (result.status === 200) {
         const data = await result.json();
-        setCategories(data.data);
+        setProducts(data.data);
       }
     };
 
-    fetchCategories();
-  }, []);
+    fetchproducts();
+  }, [category, sub_category]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -47,18 +49,20 @@ export default function AllSubCategories() {
   return (
     <div className="container mx-auto p-4">
       <div className="justify-between flex items-center">
-        <h1 className="text-3xl font-bold mb-4">All Sub Categories</h1>
+        <h1 className="text-3xl font-bold mb-4">
+          Products - {category} - {sub_category}
+        </h1>
         <a
-          href="/categories/create/sub"
+          href="/categories/create/product"
           className="bg-blue-500 text-white p-2 rounded-lg shadow-md hover:bg-blue-700"
         >
           {" "}
-          Add Sub Category{" "}
+          Add Products{" "}
         </a>
       </div>
       <div className="flex flex-wrap gap-10">
-        {categories?.map((category, key) => (
-          <CategoryCard key={key} category={category} />
+        {products?.map((product, key) => (
+          <ProductCard key={key} product={product} />
         ))}
       </div>
     </div>

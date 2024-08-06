@@ -1,0 +1,12 @@
+import Fotter from "@/components/HomePage/Fotter";
+import Navbar from "@/components/HomePage/Navbar";
+
+export default function Page() {
+  return (
+    <div>
+      <Navbar />
+      <h1>Edit Product</h1>
+      <Fotter />
+    </div>
+  );
+}
