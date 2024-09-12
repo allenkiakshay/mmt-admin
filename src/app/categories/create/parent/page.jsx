@@ -8,7 +8,7 @@ export default function Page() {
       <Navbar />
       <CategoryCreate
         api={"/api/parent-category/create"}
-        redirect={"/categories"}
+        redirect={"/categories/parent"}
       />
       <Fotter />
     </>
